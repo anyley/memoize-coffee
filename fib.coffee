@@ -1,6 +1,7 @@
 memoize = require "./memoize"
 
-fib_index = 30
+fib_index = 45
+console.log "Fibonacci index: #{fib_index}\n"
 
 print_elapsed_time = (startTime) ->
 	console.log "Elapsed time: #{(Date.now()-startTime)/1000}s\n"
