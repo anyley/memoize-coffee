@@ -1,8 +1,8 @@
 # cache repeated calc values
 memoize = (arg...) ->
 	@cache = {}
-	@fx = arg[arg.length-1]
 	if arg.length == 2
+		@fx = arg[arg.length-1]
 		@yield = (key) ->
 			return @cache[key] if @cache[key]?
 			return @cache[key] = @fx(key)
