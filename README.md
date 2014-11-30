@@ -20,7 +20,8 @@ memoize = require "./memoize"
 
 # fibonacci algorithm wrapped with memoize function
 # arg1 = keyValue
-# arg2 and @yield = user function
+# arg2 = user function
+# @yield = a memoized user function that returns the result from cache
 fast_fib = (x) ->
 	memoize x, (n) ->
 		switch n 
