@@ -31,6 +31,10 @@ fast_fib = (x) ->
 fib = (n) ->
 	return n if n<2
 	fib(n-1) + fib(n-2)
+
+# run
+result = fast_fib(45)
+result = fib(45)
 ```
 __Output:__
 ```
