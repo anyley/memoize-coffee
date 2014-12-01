@@ -14,11 +14,8 @@ startTime = Date.now()
 # arg2 and @yield = user function
 fast_fib = (x) ->
 	memoize x, (n) ->
-		switch n 
-			when 0 then result = 0
-			when 1,2 then result = 1
-			else result = @yield(n-1) + @yield(n-2)
-		return result
+		return n if n<2
+		return @yield(n-1) + @yield(n-2)
 
 console.log "Calc with memoize wrapper..."
 console.log fast_fib(fib_index)
@@ -30,11 +27,8 @@ startTime = Date.now()
 
 # fibonacci algorithm
 fib = (n) ->
-	switch n 
-		when 0 then result = 0
-		when 1,2 then result = 1
-		else result = fib(n-1) + fib(n-2)
-	return result
+	return n if n<2
+	return fib(n-1) + fib(n-2)
 
 console.log "Calc fib function..."
 console.log fib(fib_index)

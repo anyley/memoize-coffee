@@ -7,8 +7,8 @@
     var arg;
     arg = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
     this.cache = {};
-    this.fx = arg[arg.length - 1];
     if (arg.length === 2) {
+      this.fx = arg[arg.length - 1];
       this["yield"] = function(key) {
         if (this.cache[key] != null) {
           return this.cache[key];
