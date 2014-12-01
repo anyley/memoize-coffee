@@ -24,19 +24,13 @@ memoize = require "./memoize"
 # @yield = a memoized user function that returns the result from cache
 fast_fib = (x) ->
 	memoize x, (n) ->
-		switch n 
-			when 0 then result = 0
-			when 1,2 then result = 1
-			else result = @yield(n-1) + @yield(n-2)
-		return result
+		return n if n<2
+		@yield(n-1) + @yield(n-2)
 
 # fibonacci algorithm
 fib = (n) ->
-	switch n 
-		when 0 then result = 0
-		when 1,2 then result = 1
-		else result = fib(n-1) + fib(n-2)
-	return result
+	return n if n<2
+	fib(n-1) + fib(n-2)
 ```
 __Output:__
 ```
