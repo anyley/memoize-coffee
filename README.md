@@ -1,14 +1,11 @@
 __USAGE:__
 ```coffee
-result = memoize initialKeyValue, (keyValue) ->
+recFunction = memoize (arguments...) ->
   # check conditions
-  return if keyValue ...
-  
-  # calc new key value if required
-  newKeyValue = keyValue ...
+  return if arguments[0]== ... arguments[...]==....
   
   # calculate and return next result
-  return @yield(newKeyValue)
+  return recFunction(arg1 | [arg1, arg2, ... argN])
 ```
 
 Example calculate fibonacci numbers
@@ -16,36 +13,30 @@ fib.coffee:
 ```coffee
 memoize = require "./memoize"
 
-...
-
-# fibonacci algorithm wrapped with memoize function
-# arg1 = keyValue
-# arg2 = user function
-# @yield = a memoized user function that returns the result from cache
-fast_fib = (x) ->
-	memoize x, (n) ->
-		return n if n<2
-		@yield(n-1) + @yield(n-2)
-
 # fibonacci algorithm
 fib = (n) ->
 	return n if n<2
 	fib(n-1) + fib(n-2)
 
+# fibonacci algorithm wrapped with memoize function
+fast_fib = memoize (n) ->
+	return n if n<2
+	fast_fib(n-1) + fast_fib(n-2)
+
 # run
-result = fast_fib(45)
-result = fib(45)
+result = fast_fib(40)
+result = fib(40)
 ```
 __Output:__
 ```
 $ coffee fib.coffee
-Fibonacci index: 45
+Fibonacci index: 40
+
+Calc slow fib function...
+102334155
+Elapsed time: 1.808s
 
 Calc with memoize wrapper...
-1134903170
+102334155
 Elapsed time: 0.001s
-
-Calc fib function...
-1134903170
-Elapsed time: 12.884s
 ```
