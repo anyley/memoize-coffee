@@ -24,8 +24,8 @@ fast_fib = memoize (n) ->
 	fast_fib(n-1) + fast_fib(n-2)
 
 # run
-result = fast_fib(40)
 result = fib(40)
+result = fast_fib(40)
 ```
 __Output:__
 ```
