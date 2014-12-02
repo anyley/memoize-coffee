@@ -1,5 +1,5 @@
-Fibonacci algorithm
-========
+Test of memoized Fibonacci algorithm
+---------------------------------
 
 Include our __memoize__ modules
 
