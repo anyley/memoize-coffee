@@ -28,7 +28,7 @@ Run slow function and show result
 	console.log fib(fib_index)
 	print_elapsed_time startTime
 
-Implementation of memoized function
+__Implementation of memoized function__
 
 	fast_fib = memoize (n) ->
 		return n if n<2
